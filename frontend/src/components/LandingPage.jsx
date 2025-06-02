@@ -1,9 +1,13 @@
 import React from "react";
-import rent from '../assets/rent.jpg'
+import rent from '../assets/rent.jpg';
+import NavBar from './NavBar';
+import { Link } from 'react-router-dom';
 import { Home, Wrench, Calendar } from "lucide-react";
 
 const LandingPage = () => {
   return (
+    <>
+    <NavBar />
     <div className="relative h-screen w-full overflow-hidden flex flex-col justify-between">
       {/* Background Image */}
       <div className="absolute inset-0 z-0">
@@ -27,15 +31,15 @@ const LandingPage = () => {
         {/* Features Row */}
         <div className="grid grid-cols-1 sm:grid-cols-3 gap-6 max-w-4xl mb-10">
           <div className="flex flex-col items-center">
-            <Home size={40} className="text-[#129B80] mb-2" />
+            <Home size={40} className="text-[#ffffff] mb-2" />
             <p className="text-lg font-medium">Easy Rent Payments</p>
           </div>
           <div className="flex flex-col items-center">
-            <Wrench size={40} className="text-[#129B80] mb-2" />
+            <Wrench size={40} className="text-[#ffffff] mb-2" />
             <p className="text-lg font-medium">Fast Maintenance Requests</p>
           </div>
           <div className="flex flex-col items-center">
-            <Calendar size={40} className="text-[#129B80] mb-2" />
+            <Calendar size={40} className="text-[#ffffff] mb-2" />
             <p className="text-lg font-medium">Event & Lease Calendar</p>
           </div>
         </div>
@@ -49,13 +53,23 @@ const LandingPage = () => {
             Learn More
           </button>
         </div>
+
+        <Link
+          to="/rent"
+          className="mt-4 inline-block text-white font-semibold bg-[#129B80] px-6 py-2 rounded hover:bg-[#0f7f69]"
+        >
+          Make a Rent Payment
+        </Link>
+
       </div>
 
+      
       {/* Footer */}
       <footer className="relative z-20 w-full bg-[#2C3E50] text-white text-center py-4 text-sm">
         © {new Date().getFullYear()} Tenly — All rights reserved.
       </footer>
     </div>
+    </>
   );
 };
 
